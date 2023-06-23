@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Penjaga.gd" type="Script" id=1]
+[ext_resource path="res://Aset/Penjaga/3_4.png" type="Texture" id=2]
+[ext_resource path="res://Aset/Penjaga/3_2.png" type="Texture" id=3]
+[ext_resource path="res://Aset/Penjaga/3_1.png" type="Texture" id=4]
+[ext_resource path="res://Aset/Penjaga/3_3.png" type="Texture" id=5]
+[ext_resource path="res://Aset/Penjaga/3_0b.png" type="Texture" id=6]
+[ext_resource path="res://Aset/Penjaga/3_0.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "kn",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "d_blk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "d_dpn",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 22.0
+height = 30.0
+
+[node name="Penjaga3" type="KinematicBody2D"]
+position = Vector2( 323, 671 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "d_dpn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 3 )
+shape = SubResource( 2 )
